@@ -1,5 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Home</h1>
+<body>
+    <h1>{{ title }}</h1>
+    <p>Today's date: {{ today }}</p>
+    <p>{{ numbers }}</p>
+    
+    <p>{{ 4|add:"2" }}</p>
+    <p>{{ numbers|add:numbers }}</p>
+    <p>{{ "WELCOME TO DJANGO!"|lower }}</p>
+    <p>{{ today|date:"D d M Y" }}</p>
+    <ul>
+      {% for number in numbers %}
+          <li>
+              {% if number == 1 %}
+                  The number is one.
+              {% elif number == 2 %}
+                  The number is two.
+              {% else %}
+                  The number is something else: {{ number }}.
+              {% endif %}
+          </li>
+      {% endfor %}
+    </ul>
+     
+     
+    
+</body>
 {% endblock content %}
