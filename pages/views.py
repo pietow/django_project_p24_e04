@@ -43,6 +43,7 @@ def home_page_view(request):
         'title': 'Welcome to My Site',
         'today': datetime.now(),
         'numbers': [1, 2, 3],          # List of numbers
+          "dic": {"one": 'one', "two": 2},  # Dictionary
     }
     return render(request, 'home.html', context)
 
