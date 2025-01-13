@@ -1,6 +1,16 @@
+<h1>Base Heading</h1>
 <header>
     <a href="{% url 'my_home' %}">Home</a>
     <a href="{% url 'about' %}">About</a>
 </header>
+
+<main>
+    <h1>{{ title}}</h1>
+    <p>Today: {{today}}</p>
+    <p>Numbers: {{ numbers }}</p>
+    <h2>{{ numbers.0 }}</h2>
+    <h2>{{ dic.one }}</h2>
+
+</main>
 
 {% block content %} {% endblock content %}

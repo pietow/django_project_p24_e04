@@ -1,8 +1,16 @@
+from django.http import HttpResponse, JsonResponse, HttpResponseForbidden, HttpResponseServerError 
 from django.shortcuts import render
 from django.views.generic import TemplateView
+from datetime import datetime
 
 def home_page_view(request):
-    return render(request, "home.html")
+    context = {
+        'title': 'Welcome to my Site',
+        'today': datetime.now(),
+        'numbers': [1, 2, 3],
+        'dic': {'one': 'dict1', 'two': 2 },
+    }
+    return render(request, "home.html", context)
     
 
 class HomePageView(TemplateView):
