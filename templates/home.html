@@ -1,9 +1,13 @@
 {% extends "base.html" %}
+{% load my_tags %}
+{% load footer_tags %}
 
 {% block content %}
 
 <body>
     <h1>{{ title }}</h1>
+    {% hello_world 'good morning' 'tony'%}
 </body>
+
 
 {% endblock content %}

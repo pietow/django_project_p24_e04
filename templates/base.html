@@ -1,3 +1,4 @@
+{% load footer_tags %}
 <h1>Base Heading</h1>
 <header>
     <a href="{% url 'my_home' %}">Home</a>
@@ -11,6 +12,27 @@
     <h2>{{ numbers.0 }}</h2>
     <h2>{{ dic.one }}</h2>
 
+    <h1>4 + 2 = {{ 4|add:"2" }}</h1>
+    <h1>{{numbers|add:numbers}}</h1> 
+    <h1>{{ "WELCOME TO DJANGO!"|lower }}</h1>
+    <h1>{{ today|date:"D d M Y" }}</h1>
+
+    <ul>
+        {%for number in numbers%}
+            <li>
+                {% if number == 1 %}
+                <p>The number is one.</p>
+                {% elif number == 2 %}
+                <p>The number is two</p>
+                {% else %}
+                <p>The number is something else: {{ number }}</p>
+                {% endif %} 
+            </li>
+        {% endfor %}
+    </ul>
+
 </main>
 
 {% block content %} {% endblock content %}
+
+{% render_footer "AwesomeCo"%}
