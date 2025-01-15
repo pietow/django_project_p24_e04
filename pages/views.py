@@ -45,3 +45,13 @@ class AboutPageView(TemplateView):
         response = super().get(request, *args, **kwargs)
         print(response)
         return response
+
+class ActiveUserRequiredMixin:
+    def dispatch(self, request, *args, **kwargs):
+        if request.COOKIES.get('my_cookie') == 'my_value':
+            return super().dispatch(request, *args, **kwargs)
+        return HttpResponseForbidden('You are not allowed to access.')
+        
+
+class DashboardView(ActiveUserRequiredMixin, TemplateView): 
+    template_name = 'dashboard.html'
